@@ -4,8 +4,8 @@
 
 ## 🎮 Try It Live
 
-- **[Interactive Demo](demo.html)** - Comprehensive demo with all features (open `demo.html` in your browser)
-- **[Online Demo](https://alihesaridev.github.io/notice.js/demo.html)** - Live demo on GitHub Pages (if enabled)
+- **[Interactive Demo](examples/demo.html)** - Comprehensive demo with all features (open `examples/demo.html` in your browser)
+- **[Online Demo](https://alihesaridev.github.io/notice.js/examples/demo.html)** - Live demo on GitHub Pages (if enabled)
 
 ## Features
 
@@ -217,15 +217,15 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Testing & Examples
 
-You can test notice.js locally by opening `demo.html` in your browser:
+You can test notice.js locally by opening `examples/demo.html` in your browser:
 
 ```bash
 # After building the project
 npm run build
 
-# Open demo.html in your browser
-open demo.html  # macOS
-# or just double-click demo.html
+# Open examples/demo.html in your browser
+open examples/demo.html  # macOS
+# or just double-click examples/demo.html
 ```
 
 The demo includes interactive examples of all features including:
@@ -241,7 +241,7 @@ The demo includes interactive examples of all features including:
 
 - GitHub: [https://github.com/alihesaridev/notice.js](https://github.com/alihesaridev/notice.js)
 - Issues: [https://github.com/alihesaridev/notice.js/issues](https://github.com/alihesaridev/notice.js/issues)
-- Demo: [demo.html](demo.html)
+- Demo: [examples/demo.html](examples/demo.html)
 
 
 

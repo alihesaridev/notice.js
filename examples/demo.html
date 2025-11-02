@@ -249,7 +249,7 @@
                     <button class="btn-orange" onclick="showNoAutoClose()">No Auto-Close</button>
                 </div>
                 <div class="code-block">
-                    <code>// 5 seconds<br>new NoticeJs({ text: 'Message', timeout: 5000 }).show();<br><br>// No auto-close<br>new NoticeJs({ text: 'Message', timeout: false }).show();</code>
+                    <code>// 5 seconds total (50ms * 100 steps)<br>new NoticeJs({ text: 'Message', timeout: 50 }).show();<br><br>// No auto-close<br>new NoticeJs({ text: 'Message', timeout: false }).show();</code>
                 </div>
             </div>
 
@@ -276,7 +276,7 @@
                     <button class="btn-secondary" onclick="showWithoutProgressBar()">Without Progress Bar</button>
                 </div>
                 <div class="code-block">
-                    <code>new NoticeJs({ text: 'Loading...', progressBar: true, timeout: 3000 }).show();</code>
+                    <code>new NoticeJs({ text: 'Loading...', progressBar: true, timeout: 50 }).show();</code>
                 </div>
             </div>
 
@@ -379,7 +379,7 @@
                     text: 'Notice.js is ready! Click any button to test features.',
                     type: 'success',
                     position: 'topRight',
-                    timeout: 4000
+                    timeout: 50  // 5 seconds total (50ms * 100 steps)
                 }).show();
             }, 500);
         }
@@ -389,7 +389,8 @@
             new NoticeJs({
                 text: 'Operation completed successfully!',
                 type: 'success',
-                position: 'topRight'
+                position: 'topRight',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -397,7 +398,8 @@
             new NoticeJs({
                 text: 'Something went wrong! Please try again.',
                 type: 'error',
-                position: 'topRight'
+                position: 'topRight',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -405,7 +407,8 @@
             new NoticeJs({
                 text: 'Please check your input before submitting.',
                 type: 'warning',
-                position: 'topRight'
+                position: 'topRight',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -413,7 +416,8 @@
             new NoticeJs({
                 text: 'New features are available. Check them out!',
                 type: 'info',
-                position: 'topRight'
+                position: 'topRight',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -423,7 +427,8 @@
                 title: 'Success',
                 text: 'Your changes have been saved successfully!',
                 type: 'success',
-                position: 'topRight'
+                position: 'topRight',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -432,7 +437,7 @@
             new NoticeJs({
                 text: 'This notification will close in 5 seconds',
                 position: 'topRight',
-                timeout: 5000
+                timeout: 50  // 5 seconds total (50ms * 100 steps)
             }).show();
         }
 
@@ -440,7 +445,7 @@
             new NoticeJs({
                 text: 'This notification will close in 10 seconds',
                 position: 'topRight',
-                timeout: 10000
+                timeout: 100  // 10 seconds total (100ms * 100 steps)
             }).show();
         }
 
@@ -457,7 +462,8 @@
             new NoticeJs({
                 text: 'Top Left Position',
                 position: 'topLeft',
-                type: 'info'
+                type: 'info',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -465,7 +471,8 @@
             new NoticeJs({
                 text: 'Top Right Position',
                 position: 'topRight',
-                type: 'success'
+                type: 'success',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -473,7 +480,8 @@
             new NoticeJs({
                 text: 'Bottom Left Position',
                 position: 'bottomLeft',
-                type: 'warning'
+                type: 'warning',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -481,7 +489,8 @@
             new NoticeJs({
                 text: 'Bottom Right Position',
                 position: 'bottomRight',
-                type: 'error'
+                type: 'error',
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -499,7 +508,7 @@
                         text: `Position: ${p.pos}`,
                         position: p.pos,
                         type: p.type,
-                        timeout: 3000
+                        timeout: 50  // 5 seconds total
                     }).show();
                 }, index * 400);
             });
@@ -511,7 +520,7 @@
                 text: 'Uploading file...',
                 position: 'topRight',
                 progressBar: true,
-                timeout: 5000
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -520,7 +529,7 @@
                 text: 'Notification without progress bar',
                 position: 'topRight',
                 progressBar: false,
-                timeout: 3000
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -533,7 +542,7 @@
                     open: 'animated bounceInRight',
                     close: 'animated bounceOutLeft'
                 },
-                timeout: 4000
+                timeout: 50  // 5 seconds total
             }).show();
         }
 
@@ -552,7 +561,7 @@
                         text: notif.text,
                         position: notif.position,
                         type: notif.type,
-                        timeout: 4000
+                        timeout: 50  // 5 seconds total
                     }).show();
                 }, index * 500);
             });
@@ -563,7 +572,7 @@
             new NoticeJs({
                 text: 'Check browser console for callback logs!',
                 position: 'topRight',
-                timeout: 4000,
+                timeout: 50,  // 5 seconds total
                 callbacks: {
                     beforeShow: function() {
                         console.log('📢 beforeShow callback fired');

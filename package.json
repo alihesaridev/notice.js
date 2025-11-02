@@ -14,11 +14,14 @@
     "prepublishOnly": "npm run build"
   },
   "main": "dist/notice.js",
+  "style": "dist/noticejs.css",
+  "types": "dist/notice.d.ts",
   "files": [
     "dist",
     "src",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "devDependencies": {
     "@babel/core": "^7.23.7",
@@ -37,9 +40,21 @@
     "notice",
     "alert",
     "toast",
-    "notification-library"
+    "notification-library",
+    "notifications",
+    "toast-notification",
+    "ui",
+    "javascript",
+    "vanilla-js"
   ],
+  "author": {
+    "name": "Ali Hesari",
+    "url": "https://alihesari.com"
+  },
   "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "spm": {
     "main": "notice.js",
     "output": [

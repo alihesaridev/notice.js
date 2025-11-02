@@ -1,5 +1,11 @@
 # Notice.js
 
+[![npm version](https://img.shields.io/npm/v/notice.js.svg)](https://www.npmjs.com/package/notice.js)
+[![npm downloads](https://img.shields.io/npm/dm/notice.js.svg)](https://www.npmjs.com/package/notice.js)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub issues](https://img.shields.io/github/issues/alihesaridev/notice.js.svg)](https://github.com/alihesaridev/notice.js/issues)
+[![GitHub stars](https://img.shields.io/github/stars/alihesaridev/notice.js.svg)](https://github.com/alihesaridev/notice.js/stargazers)
+
 > A beautiful and modern, yet fully customizable notification library.
 
 ## 🎮 Try It Live

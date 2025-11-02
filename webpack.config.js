@@ -1,52 +1,67 @@
-var webpack = require('webpack');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const config = {
-  entry: './src/js/notice.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: 'dist/',
-    filename: 'notice.js',
-    library: 'NoticeJs',
-    libraryTarget: 'umd',
-    umdNamedDefine: true
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['babel-preset-env'],
-            plugins: [require('babel-plugin-add-module-exports')]
-          }
-        }
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production';
+
+  return {
+    entry: './src/js/notice.js',
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: 'dist/',
+      filename: 'notice.js',
+      library: {
+        name: 'NoticeJs',
+        type: 'umd',
+        export: 'default'
       },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+      globalObject: 'this',
+      clean: true
+    },
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env', {
+                  targets: {
+                    browsers: ['> 1%', 'last 2 versions', 'not dead']
+                  }
+                }]
+              ],
+              plugins: ['babel-plugin-add-module-exports']
+            }
+          }
+        },
+        {
+          test: /\.scss$/,
           use: [
+            MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
               options: {
-                minimize: true
+                sourceMap: !isProduction
               }
             },
             {
-              loader: 'sass-loader'
+              loader: 'sass-loader',
+              options: {
+                sourceMap: !isProduction
+              }
             }
           ]
-        })
-      }
-    ]
-  },
-  plugins: [
-    new ExtractTextPlugin("noticejs.css"),
-  ]
+        }
+      ]
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'noticejs.css'
+      })
+    ],
+    devtool: isProduction ? false : 'source-map'
+  };
 };
-
-module.exports = config;

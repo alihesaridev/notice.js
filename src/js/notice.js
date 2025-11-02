@@ -13,13 +13,34 @@ export default class NoticeJs {
     this.options = Object.assign(API.Defaults, options);
     this.component = new Components();
     
-    this.on('beforeShow', this.options.callbacks.beforeShow);
-    this.on('onShow', this.options.callbacks.onShow);
-    this.on('afterShow', this.options.callbacks.afterShow);
-    this.on('onClose', this.options.callbacks.onClose);
-    this.on('afterClose', this.options.callbacks.afterClose);
-    this.on('onClick', this.options.callbacks.onClick);
-    this.on('onHover', this.options.callbacks.onHover);
+    // Handle callbacks - merge user callbacks with defaults
+    if (options.callbacks) {
+      Object.keys(options.callbacks).forEach(callbackName => {
+        if (this.options.callbacks.hasOwnProperty(callbackName)) {
+          const userCallback = options.callbacks[callbackName];
+          // If user provided a function directly, convert it to array
+          if (typeof userCallback === 'function') {
+            this.options.callbacks[callbackName] = [userCallback];
+          } 
+          // If user provided an array, use it
+          else if (Array.isArray(userCallback)) {
+            this.options.callbacks[callbackName] = userCallback;
+          }
+        }
+      });
+    }
+    
+    // Register callbacks from arrays
+    ['beforeShow', 'onShow', 'afterShow', 'onClose', 'afterClose', 'onClick', 'onHover'].forEach(callbackName => {
+      const callbacks = this.options.callbacks[callbackName];
+      if (Array.isArray(callbacks)) {
+        callbacks.forEach(cb => {
+          if (typeof cb === 'function') {
+            this.on(callbackName, cb);
+          }
+        });
+      }
+    });
     
     return this;
   }
